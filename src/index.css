@@ -1,23 +1,35 @@
-html,
-body {
-  height: 100%;
-}
 body {
   margin: 0;
 }
 
 * {
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* Phones */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+/* Galaxy fold */
+@media (max-width: 280px) {
+  h1 {
+    font-size: 15px;
+  }
+
+  h5 {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 280px) {
 }
