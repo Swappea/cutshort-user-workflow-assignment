@@ -19,7 +19,7 @@ const Header5 = styled.h5`
   margin: 0;
 `;
 
-const FormContainer = styled.div`
+const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
@@ -27,16 +27,24 @@ const FormContainer = styled.div`
 
 const Label = styled.label`
   display: block;
-  color: #525c70;
+  color: #000;
 `;
 
 const Input = styled.input`
   display: block;
   width: 400px;
-  padding: 10px;
+  padding: 15px;
   margin-top: 10px;
   border: 1px solid #eaeef5;
   border-radius: 5px;
+
+  ::placeholder {
+    color: #b0b8ca;
+  }
+
+  @media (max-width: 480px) {
+    width: 250px;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -58,9 +66,14 @@ const Stage1 = ({ onSubmitHandler }) => {
       <Header1>Welcome! First things first...</Header1>
       <Header5>You can always change them later.</Header5>
 
-      <FormContainer>
+      <FormContainer
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSubmitHandler({ fullName, displayName });
+        }}
+      >
         <Label>
-          Full Name:
+          Full Name
           <Input
             type="text"
             name="name"
@@ -70,7 +83,7 @@ const Stage1 = ({ onSubmitHandler }) => {
           />
         </Label>
         <Label>
-          Display Name:
+          Display Name
           <Input
             type="text"
             name="name"
@@ -79,9 +92,7 @@ const Stage1 = ({ onSubmitHandler }) => {
             onChange={({ target }) => setDisplayName(target.value)}
           />
         </Label>
-        <SubmitButton disabled={!(fullName && displayName)} onClick={() => onSubmitHandler({ fullName, displayName })}>
-          Create Workspace
-        </SubmitButton>
+        <SubmitButton disabled={!(fullName && displayName)}>Create Workspace</SubmitButton>
       </FormContainer>
     </Container>
   );

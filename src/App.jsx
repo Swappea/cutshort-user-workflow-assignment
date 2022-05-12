@@ -5,12 +5,11 @@ import Onboarding from './onboarding/Onboarding';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 
-  height: 100vh;
-  width: 100vw;
+  margin-top: 50px;
 `;
 
 const App = () => {
